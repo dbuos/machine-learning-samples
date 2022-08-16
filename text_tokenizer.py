@@ -9,14 +9,7 @@ def tokenizer(text):
     
 def build_vocab(dataset):
     token_counts = Counter()
-    i = 0
-    for label, lines in dataset:
-        print(i)
-        i += 1
-        tokens = tokenizer(lines)
+    for label, line in dataset:
+        tokens = tokenizer(line)
         token_counts.update(tokens)
-        return token_counts
-
-if __name__ == '__main__':
-    text = '''<h1>Hola :) como estas ?</h1>'''
-    print(tokenizer(text))
+    return token_counts
