@@ -32,10 +32,10 @@ class Generator(Module):
     def __init__(self) -> None:
         super().__init__()
         self.sequential = Sequential(
-            Generator.create_trans_conv_module(in_channels=100, out_channels=128, kernel_size=4),
-            Generator.create_trans_conv_module(in_channels=128, out_channels=64, kernel_size=3, stride=2, padding=1),
-            Generator.create_trans_conv_module(in_channels=64, out_channels=32, kernel_size=4,stride=2, padding=1),
-            ConvTranspose2d(in_channels=32, out_channels=1, kernel_size=4, padding=1, bias=False, stride=2),
+            Generator.create_trans_conv_module(in_channels=100, out_channels=256, kernel_size=4),
+            Generator.create_trans_conv_module(in_channels=256, out_channels=128, kernel_size=3, stride=2, padding=1),
+            Generator.create_trans_conv_module(in_channels=128, out_channels=64, kernel_size=4,stride=2, padding=1),
+            ConvTranspose2d(in_channels=64, out_channels=1, kernel_size=4, padding=1, bias=False, stride=2),
             nn.Tanh(),
         )
 
